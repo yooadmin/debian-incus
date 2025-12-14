@@ -71,6 +71,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        run: |
+          apt update && apt install -y git --no-install-recommends
+        
+        
 
       - name: Configure git
         run: |
@@ -82,7 +86,6 @@ jobs:
         run: |
           apt-get update
           apt-get install --no-install-recommends --yes \
-            git \
             acpica-tools \
             asciidoc \
             autoconf \
