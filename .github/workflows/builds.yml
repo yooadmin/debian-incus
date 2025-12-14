@@ -378,12 +378,7 @@ jobs:
 
       - name: Build Distrobuilder
         run: |
-          git config --global core.askpass ""
-          git config --global credential.helper "store --file=/dev/null"
           cd /build/distrobuilder
-          go mod init github.com/lxc/distrobuilder 2>/dev/null || true
-          go get github.com/cyphar/filepath-securejoin@v0.6.0
-          go mod tidy
           go build -o "/opt/incus/bin/distrobuilder" github.com/lxc/distrobuilder/distrobuilder
 
       - name: Build CRIU
