@@ -18,20 +18,20 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - debian-13
+          - debian-13  # 对应 Debian 13 (Bookworm)
         arch:
           - amd64
-        # - arm64
-        # exclude:
-         # - os: debian-11
-          #  arch: arm64
-    runs-on:
-      - self-hosted
-      - cpu-4
-      - mem-8G
-      - disk-50G
-      - arch-${{ matrix.arch }}
-      - image-${{ matrix.os }}
+        # - arm64  # 如需启用 arm64，取消注释即可（需下方 QEMU 步骤）
+    # 使用 GitHub 公共基础运行器 + Debian 13 官方容器
+    runs-on: ubuntu-latest
+    # 核心：Debian 13 容器配置（精准匹配系统，模拟原 4CPU/8G 资源）
+    container:
+      image: debian:bookworm  # Debian 13 官方镜像（bookworm 是 Debian 13 代号）
+      options: >-
+        --cpus 4
+        --memory 8g
+        --platform linux/${{ matrix.arch }}
+        --tmpfs /tmp:size=4G  # 可选：临时目录扩容，提升构建速度
 
     env:
       OS_ARCH: ${{ matrix.arch }}
