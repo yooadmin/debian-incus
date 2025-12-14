@@ -22,9 +22,9 @@ jobs:
         arch:
           - amd64
         # - arm64
-        exclude:
-          - os: debian-11
-            arch: arm64
+        # exclude:
+         # - os: debian-11
+          #  arch: arm64
     runs-on:
       - self-hosted
       - cpu-4
@@ -45,11 +45,11 @@ jobs:
       PATH: "/opt/incus/bin:/root/.cargo/bin:/usr/local/go/bin:/usr/local/node/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
       # Linux Containers projects
-      DISTROBUILDER_TAG: "distrobuilder-3.2"
+      DISTROBUILDER_TAG: "main"
       INCUS_TAG: "main"
-      INCUS_UI_CANONICAL_TAG: "incus-0.18.4"
-      LXCFS_TAG: "v6.0.5"
-      LXC_TAG: "v6.0.5"
+      INCUS_UI_CANONICAL_TAG: "main"
+      LXCFS_TAG: "main"
+      LXC_TAG: "main"
 
       # External dependencies
       COWSQL_TAG: "v1.15.9"
