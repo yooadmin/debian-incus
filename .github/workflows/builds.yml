@@ -69,12 +69,12 @@ jobs:
       TRUENAS_INCUS_CTL_TAG: "v0.7.3"
       VIRTIOFSD_TAG: "v1.13.3"
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: 测试
         run: |
           apt update && apt install -y git --no-install-recommends
-        
-        
+          
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Configure git
         run: |
