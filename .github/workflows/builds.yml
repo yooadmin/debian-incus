@@ -75,6 +75,7 @@ jobs:
           apt update && apt install -y \
             ca-certificates \
             git \
+            curl \
             --no-install-recommends
           # 2. 更新证书缓存
           update-ca-certificates
