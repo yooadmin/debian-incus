@@ -25,15 +25,15 @@ jobs:
     runs-on: ubuntu-latest
     # 修复：容器 options 移除注释、统一单行格式、清理非法字符
     container:
-      image: debian:bookworm  # Debian 13 官方镜像（bookworm = Debian 13）
+      image: debian:bookworm  
       options: >-
         --cpus 4
         --memory 8g
         --platform linux/${{ matrix.arch }}
         --tmpfs /tmp:size=4G,exec
         --user root
-        --privileged  # 特权模式允许启动 systemd
-        --volume /sys/fs/cgroup:/sys/fs/cgroup:ro  # 挂载 cgroup 支持 systemd
+        --privileged  
+        --volume /sys/fs/cgroup:/sys/fs/cgroup:ro  
     env:
       OS_ARCH: ${{ matrix.arch }}
       OS_NAME: ${{ matrix.os }}
