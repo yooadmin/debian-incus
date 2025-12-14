@@ -378,8 +378,7 @@ jobs:
 
       - name: Build Distrobuilder
         run: |
-          # go get github.com/cyphar/securejoin@v0.4.0
-          go get github.com/cyphar/filepath-securejoin@latest
+          go get github.com/cyphar/securejoin@latest
           cd /build/distrobuilder
           go build -o "/opt/incus/bin/distrobuilder" github.com/lxc/distrobuilder/distrobuilder
 
