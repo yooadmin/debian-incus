@@ -32,6 +32,8 @@ jobs:
         --platform linux/${{ matrix.arch }}
         --tmpfs /tmp:size=4G,exec
         --user root
+        --privileged  # 特权模式允许启动 systemd
+        --volume /sys/fs/cgroup:/sys/fs/cgroup:ro  # 挂载 cgroup 支持 systemd
     env:
       OS_ARCH: ${{ matrix.arch }}
       OS_NAME: ${{ matrix.os }}
@@ -99,6 +101,8 @@ jobs:
         run: |
           apt-get update
           apt-get install --no-install-recommends --yes \
+            libsystemd-dev \
+            systemd \
             acpica-tools \
             asciidoc \
             autoconf \
