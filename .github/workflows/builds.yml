@@ -31,6 +31,7 @@ jobs:
         --memory 8g
         --platform linux/${{ matrix.arch }}
         --tmpfs /tmp:size=4G,exec
+        --user root
     env:
       OS_ARCH: ${{ matrix.arch }}
       OS_NAME: ${{ matrix.os }}
