@@ -30,7 +30,7 @@ jobs:
         --cpus 4
         --memory 8g
         --platform linux/${{ matrix.arch }}
-        --tmpfs /tmp:size=4G
+        --tmpfs /tmp:size=4G,exec
     env:
       OS_ARCH: ${{ matrix.arch }}
       OS_NAME: ${{ matrix.os }}
